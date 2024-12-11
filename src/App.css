@@ -1,0 +1,197 @@
+.app-container {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #f6d365, #fda085);
+  animation: gradientBackground 8s infinite;
+  background-size: 400% 400%;
+  overflow: hidden;
+}
+
+.question-container,
+.completion-container {
+  text-align: center;
+  background: none;
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  animation: slideDown 1s ease-in-out;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #f6d365;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #fda085;
+  transform: scale(1.05);
+}
+
+.love-button {
+  background: linear-gradient(120deg, #ff6f91, #ff9671);
+  box-shadow: 0 4px 10px rgba(255, 105, 135, 0.6);
+  font-size: 1.2rem;
+}
+
+.love-button:hover {
+  transform: scale(1.1);
+}
+
+.hearts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  animation: floatHearts 3s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Pop-up styles */
+.popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-out;
+  z-index: 1000;
+}
+
+.popup.success {
+  color: green;
+}
+
+.popup.error {
+  color: red;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  .question-container h2 {
+    font-size: 1.5rem;
+  }
+}
+
