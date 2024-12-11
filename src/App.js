@@ -22,7 +22,7 @@ const questions = [
     id: 3, 
     question: 'Where did we meet for the first time?', 
     answers: [
-      'vapi', 'mcd vapi', "Mac'd Vapi", "Mac'd", 'Macd', 'mcd', 'Mcd', 'Mcd vapi', 'Mcd Vapi'
+      'vapi', 'mcd vapi', "Mac'd Vapi", "Mac'd", 'Macd', 'mcd', 'Mcd', 'Mcd vapi', 'Mcd Vapi','at my home','hp','haria park'
     ] 
   },
   { 
